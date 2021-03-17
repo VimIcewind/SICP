@@ -1,0 +1,7 @@
+(define x 6)
+(define y 9)
+(and (> x 5) (< x 10))
+(define (>= x y) (or (> x y) (= x y)))
+(>= x y)
+(define (>= x y) (not (< x y)))
+(>= x y)
