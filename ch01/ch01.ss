@@ -318,6 +318,30 @@ square
 (newline)
 
 (define (sqrt x)
+  (define tolerance 0.00001)
+
+(define (good-enough? y)
+    (< (abs (- (* y y) x)) tolerance))
+
+  (define (improve y)
+    (average (/ x y) y))
+
+  (define (try y)
+    (if (good-enough? y)
+      y
+      (try (improve y))))
+
+  (define (average a b)
+    (/ (+ a b) 2))
+
+  (try 1.0))
+
+(sqrt 2)
+(sqrt 100)
+
+(newline)
+
+(define (sqrt x)
   (fixed-point
     (lambda (y) (average (/ x y) y))
     1))
