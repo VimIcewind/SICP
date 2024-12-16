@@ -41,3 +41,13 @@
 
 
 (map (lambda (x) (+ x 10)) 1-to-4)
+
+
+
+(define (for-each proc list)
+  (cond ((null? list) "done")
+        (else (proc (car list))
+              (for-each proc (cdr list)))))
+
+(for-each display 1-to-4)
+
