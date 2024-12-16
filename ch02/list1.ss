@@ -18,3 +18,26 @@
           (scale-list s (cdr l)))))
 
 (scale-list 10 1-to-4)
+
+
+(define (map p l)
+  (if (null? l)
+    '()
+    (cons (p (car l))
+          (map p (cdr l)))))
+
+
+(define (scale-list s l)
+  (map (lambda (item) (* item s))
+       l))
+
+(scale-list 10 1-to-4)
+
+
+(define (square x)
+  (* x x))
+
+(map square 1-to-4)
+
+
+(map (lambda (x) (+ x 10)) 1-to-4)
