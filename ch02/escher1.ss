@@ -87,7 +87,7 @@
 
 ;(define r (make-rect ....))
 
-;(define g (make-pict ....make-rect...))
+;(define g (make-pict ....))
 
 ;(g r)
 
@@ -139,9 +139,11 @@
   (if (= n 0)
     p
     (beside p (right-push p
-                          (-N 1)
+                          (- n 1)
                           a)
             a)))
+
+;(right-push g 2 .75)
 
 (define (push comb)
   (lambda (pict n a)
